@@ -14,7 +14,7 @@ COPY --from=mongo_builder /usr/bin/mongosh /usr/local/bin/mongosh
 
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get install -y ca-certificates curl gnupg2 git apt-transport-https \
+    && apt-get install -y ca-certificates curl gnupg2 nmap git apt-transport-https \
     && update-ca-certificates \
     && curl -sSL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor -o /usr/share/keyrings/microsoft-prod.gpg \
     && chmod 644 /usr/share/keyrings/microsoft-prod.gpg \

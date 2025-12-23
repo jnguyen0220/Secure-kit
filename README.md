@@ -13,6 +13,7 @@ A comprehensive security and database toolkit container with tools for secret sc
   - [Base System Tools](#base-system-tools)
 - [Usage Examples](#usage-examples)
   - [TruffleHog Examples](#trufflehog-examples)
+  - [Nmap Examples](#nmap-examples)
   - [MongoDB Shell Examples](#mongodb-shell-examples)
   - [SQL Server Examples](#sql-server-examples)
 - [Environment](#environment)
@@ -88,6 +89,12 @@ Secret scanning tool for finding leaked credentials and sensitive information in
 
 - **Location:** `/usr/local/bin/trufflehog`
 - **Source:** [TruffleHog](https://github.com/trufflesecurity/trufflehog)
+
+#### Nmap
+Network exploration tool and security/port scanner.
+
+- **Location:** `/usr/bin/nmap`
+- **Documentation:** [Nmap Official Site](https://nmap.org/)
 
 ---
 
@@ -168,6 +175,100 @@ trufflehog github --repo https://github.com/username/repository --json
 **Scan only verified secrets:**
 ```bash
 trufflehog github --repo https://github.com/username/repository --only-verified
+```
+
+### Nmap Examples
+**Basic host scan:**
+```bash
+nmap 192.168.1.1
+```
+
+**Scan specific ports:**
+```bash
+nmap -p 80,443,8080 192.168.1.1
+```
+
+**Scan port range:**
+```bash
+nmap -p 1-1000 192.168.1.1
+```
+
+**Scan all ports:**
+```bash
+nmap -p- 192.168.1.1
+```
+
+**Fast scan (most common 100 ports):**
+```bash
+nmap -F 192.168.1.1
+```
+
+#### Service and Version Detection
+
+**Detect service versions:**
+```bash
+nmap -sV 192.168.1.1
+```
+
+**OS detection:**
+```bash
+nmap -O 192.168.1.1
+```
+
+**Aggressive scan (OS detection, version detection, script scanning, and traceroute):**
+```bash
+nmap -A 192.168.1.1
+```
+
+#### Scan Types
+
+**TCP SYN scan (default, requires root):**
+```bash
+nmap -sS 192.168.1.1
+```
+
+**TCP connect scan (no root required):**
+```bash
+nmap -sT 192.168.1.1
+```
+
+**UDP scan:**
+```bash
+nmap -sU 192.168.1.1
+```
+
+#### Network Scanning
+
+**Scan entire subnet:**
+```bash
+nmap 192.168.1.0/24
+```
+
+**Scan multiple hosts:**
+```bash
+nmap 192.168.1.1 192.168.1.2 192.168.1.3
+```
+
+**Scan from a list of hosts:**
+```bash
+nmap -iL hosts.txt
+```
+
+#### Output Options
+
+**Save scan results to file:**
+```bash
+nmap -oN scan_results.txt 192.168.1.1
+```
+
+**Save as XML:**
+```bash
+nmap -oX scan_results.xml 192.168.1.1
+```
+
+**All output formats:**
+```bash
+nmap -oA scan_results 192.168.1.1
 ```
 
 ### MongoDB Shell Examples
