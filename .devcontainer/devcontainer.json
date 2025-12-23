@@ -1,5 +1,5 @@
 {
-    "name": "Python & Typescript",
+    "name": "Secure Kit",
     "build": {
         "dockerfile": "../Dockerfile"
     }
